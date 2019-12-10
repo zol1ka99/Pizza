@@ -8,6 +8,9 @@ namespace _2019TobbformosMvcPizzaEgyTabla.model
 {
     class Futar
     {
-        nem
+        private int id;
+        private string name;
+        private string telefomszam;
+
     }
 }
