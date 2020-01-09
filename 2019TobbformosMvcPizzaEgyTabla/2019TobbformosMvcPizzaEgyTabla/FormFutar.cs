@@ -19,35 +19,35 @@ namespace _2019TobbformosMvcPizzaEgyTabla
         /// <summary>
         /// Pizzákat tartalmazó adattábla
         /// </summary>
-        private DataTable pizzasDT = new DataTable();
+        private DataTable FutarDT = new DataTable();
         /// <summary>
         /// Tárolja a pizzákat listában
         /// </summary>
-        private Repository repo = new Repository();
+        private Repository Frepo = new Repository();
 
-        bool ujAdatfelvitel = false;
+        bool ujFutarfelvitel = false;
 
-        private void buttonBetoltesPizzak_Click(object sender, EventArgs e)
+        private void buttonBetoltesFutar_Click(object sender, EventArgs e)
         {
-            //Adatbázisban pizza tábla kezelése
-            RepositoryDatabaseTablePizza rtp = new RepositoryDatabaseTablePizza();
+        //Adatbázisban pizza tábla kezelése
+        RepositoryDatabaseTablePizza rtp = new RepositoryDatabaseTablePizza();
             //A repo-ba lévő pizza listát feltölti az adatbázisból
             repo.setPizzas(rtp.getPizzasFromDatabaseTable());
-            frissitAdatokkalDataGriedViewt();
-            beallitPizzaDataGriViewt();
+            frissitAdatokkalDataGriedViewtf();
+            beallitFutarDataGriViewt();
             beallitGombokatIndulaskor();            
 
-            dataGridViewFutar.SelectionChanged += DataGridViewPizzak_SelectionChanged;
+            dataGridViewFutar.SelectionChanged += DataGridViewFutar_SelectionChanged;
         }
 
-        private void beallitGombokatIndulaskor()
+        private void beallitGombokatIndulaskorf()
         {
-            panelPizza.Visible = false;
+            panelFutar.Visible = false;
             panelModositTorolGombok.Visible = false ;
             if (dataGridViewFutar.SelectedRows.Count != 0)
-                buttonUjPizza.Visible = false;
+                buttonUjFutar.Visible = false;
             else
-                buttonUjPizza.Visible = true;
+                buttonUjFutar.Visible = true;
         }
 
         private void DataGridViewPizzak_SelectionChanged(object sender, EventArgs e)
@@ -77,23 +77,23 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             }
         }
 
-        private void frissitAdatokkalDataGriedViewt()
+        private void frissitAdatokkalDataGriedViewtf()
         {
             //Adattáblát feltölti a repoba lévő pizza listából
-            pizzasDT = repo.getPizzaDataTableFromList();
+            pizzasDT = repo.getFutarDataTableFromList();
             //Pizza DataGridView-nak a forrása a pizza adattábla
             dataGridViewFutar.DataSource = null;
-            dataGridViewFutar.DataSource = pizzasDT;
+            dataGridViewFutar.DataSource = FutarDT;
         }
 
-        private void beallitPizzaDataGriViewt()
+        private void beallitFutarDataGriViewt()
         {
-            pizzasDT.Columns[0].ColumnName = "Azonosító";
-            pizzasDT.Columns[0].Caption = "Pizza azonosító";
-            pizzasDT.Columns[1].ColumnName = "Név";
-            pizzasDT.Columns[1].Caption = "Pizza név";
-            pizzasDT.Columns[2].ColumnName = "Ár";
-            pizzasDT.Columns[2].Caption = "Pizza ár";
+            FutarDT.Columns[0].ColumnName = "Azonosító";
+            FutarDT.Columns[0].Caption = "Futár azonosító";
+            FutarDT.Columns[1].ColumnName = "Név";
+            FutarDT.Columns[1].Caption = "Futár név";
+            FutarDT.Columns[2].ColumnName = "Telefonszám";
+            FutarDT.Columns[2].Caption = "Futar telefonszám";
 
             dataGridViewFutar.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
@@ -125,12 +125,12 @@ namespace _2019TobbformosMvcPizzaEgyTabla
                     return;
                 try
                 {
-                    repo.deletePizzaFromList(id);
+                    repo.deleteFutarFromList(id);
                 }
                 catch (RepositoryExceptionCantDelete recd)
                 {
                     kiirHibauzenetet(recd.Message);
-                    Debug.WriteLine("A pizza törlés nem sikerült, nincs a listába!");
+                    Debug.WriteLine("A futár törlés nem sikerült, nincs a listába!");
                 }
                 //2. törölni kell az adatbázisból
                 RepositoryDatabaseTablePizza rdtp = new RepositoryDatabaseTablePizza();
@@ -143,12 +143,12 @@ namespace _2019TobbformosMvcPizzaEgyTabla
                     kiirHibauzenetet(ex.Message);
                 }
                 //3. frissíteni kell a DataGridView-t  
-                frissitAdatokkalDataGriedViewt();
+                frissitAdatokkalDataGriedViewtf();
                 if (dataGridViewFutar.SelectedRows.Count <= 0)
                 {
-                    buttonUjPizza.Visible = true;
+                    buttonUjFutar.Visible = true;
                 }
-                beallitPizzaDataGriViewt();
+                beallitFutarDataGriViewt();
             }
         }
         private void buttonModositPizza_Click(object sender, EventArgs e)
@@ -159,15 +159,15 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             try
             {
                 Futar modosult = new Futar(
-                    Convert.ToInt32(textBoxPizzaAzonosito.Text),
-                    textBoxPizzaNev.Text,
-                    textBoxPizzaAr.Text
+                    Convert.ToInt32(textBoxFutarAzonosito.Text),
+                    textBoxFutarNev.Text,
+                    textBoxFutarAr.Text
                     );
                 int azonosito = Convert.ToInt32(textBoxPizzaAzonosito.Text);
                 //1. módosítani a listába
                 try
                 {
-                    repo.updatePizzaInList(azonosito, modosult);
+                    repo.updateFutarInList(azonosito, modosult);
                 }
                 catch (Exception ex)
                 {
@@ -178,7 +178,7 @@ namespace _2019TobbformosMvcPizzaEgyTabla
                 RepositoryDatabaseTablePizza rdtp = new RepositoryDatabaseTablePizza();
                 try
                 {
-                    rdtp.updatePizzaInDatabase(azonosito, modosult);
+                    rdtp.updateFutarInDatabase(azonosito, modosult);
                 }
                 catch (Exception ex)
                 {
@@ -189,16 +189,16 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             }
             catch (ModelPizzaNotValidNameExeption nvn)
             {
-                errorProviderPizzaName.SetError(textBoxPizzaNev, nvn.Message);
+                errorProviderPizzaName.SetError(textBoxFutarNev, nvn.Message);
             }
             catch (ModelPizzaNotValidPriceExeption nvp)
             {
-                errorProviderPizzaName.SetError(textBoxPizzaAr, nvp.Message);
+                errorProviderPizzaName.SetError(textBoxFutarTel, nvp.Message);
             }
             catch (RepositoryExceptionCantModified recm)
             {
                 kiirHibauzenetet(recm.Message);
-                Debug.WriteLine("Módosítás nem sikerült, a pizza nincs a listába!");
+                Debug.WriteLine("Módosítás nem sikerült, a futár nincs a listába!");
             }
             catch (Exception ex)
             { }

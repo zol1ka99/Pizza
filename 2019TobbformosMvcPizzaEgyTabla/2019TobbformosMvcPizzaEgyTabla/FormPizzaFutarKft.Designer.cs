@@ -67,8 +67,23 @@
             this.labelPizzaAzonosito = new System.Windows.Forms.Label();
             this.buttonUjPizza = new System.Windows.Forms.Button();
             this.buttonBetoltesPizzak = new System.Windows.Forms.Button();
-            this.dataGridViewPizzak = new System.Windows.Forms.DataGridView();
+            this.dataGridViewFutar = new System.Windows.Forms.DataGridView();
             this.tabPageFutarok = new System.Windows.Forms.TabPage();
+            this.buttonFutarMegsem = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonModositFutar = new System.Windows.Forms.Button();
+            this.buttonTorolFutar = new System.Windows.Forms.Button();
+            this.buttonUjMentese = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.textBoxFutarTel = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxFutarNev = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBoxFutarAzon = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.buttonUjFutar = new System.Windows.Forms.Button();
+            this.buttonBetoltesFutar = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPageMegrendelok = new System.Windows.Forms.TabPage();
             this.errorProviderPizzaName = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderPizzaPrice = new System.Windows.Forms.ErrorProvider(this.components);
@@ -79,7 +94,11 @@
             this.tabPagePizzak.SuspendLayout();
             this.panelModositTorolGombok.SuspendLayout();
             this.panelPizza.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPizzak)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFutar)).BeginInit();
+            this.tabPageFutarok.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderPizzaName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderPizzaPrice)).BeginInit();
             this.SuspendLayout();
@@ -138,7 +157,7 @@
             // többtöbbKapcsolatToolStripMenuItem
             // 
             this.többtöbbKapcsolatToolStripMenuItem.Name = "többtöbbKapcsolatToolStripMenuItem";
-            this.többtöbbKapcsolatToolStripMenuItem.Size = new System.Drawing.Size(128, 20);
+            this.többtöbbKapcsolatToolStripMenuItem.Size = new System.Drawing.Size(129, 20);
             this.többtöbbKapcsolatToolStripMenuItem.Text = "Több-több kapcsolat";
             // 
             // tesztadatokToolStripMenuItem
@@ -146,7 +165,7 @@
             this.tesztadatokToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.adatbázisToolStripMenuItem});
             this.tesztadatokToolStripMenuItem.Name = "tesztadatokToolStripMenuItem";
-            this.tesztadatokToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.tesztadatokToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
             this.tesztadatokToolStripMenuItem.Text = "Tesztadatok";
             // 
             // adatbázisToolStripMenuItem
@@ -275,7 +294,7 @@
             this.tabPagePizzak.Controls.Add(this.panelPizza);
             this.tabPagePizzak.Controls.Add(this.buttonUjPizza);
             this.tabPagePizzak.Controls.Add(this.buttonBetoltesPizzak);
-            this.tabPagePizzak.Controls.Add(this.dataGridViewPizzak);
+            this.tabPagePizzak.Controls.Add(this.dataGridViewFutar);
             this.tabPagePizzak.Location = new System.Drawing.Point(4, 22);
             this.tabPagePizzak.Name = "tabPagePizzak";
             this.tabPagePizzak.Padding = new System.Windows.Forms.Padding(3);
@@ -293,7 +312,6 @@
             this.buttonMegsem.Text = "Mégsem";
             this.buttonMegsem.UseVisualStyleBackColor = true;
             this.buttonMegsem.Visible = false;
-            this.buttonMegsem.Click += new System.EventHandler(this.buttonMegsem_Click);
             // 
             // panelModositTorolGombok
             // 
@@ -313,7 +331,6 @@
             this.buttonModositPizza.TabIndex = 3;
             this.buttonModositPizza.Text = "Módosít";
             this.buttonModositPizza.UseVisualStyleBackColor = true;
-            this.buttonModositPizza.Click += new System.EventHandler(this.buttonModositPizza_Click);
             // 
             // buttonTorolPizza
             // 
@@ -323,7 +340,6 @@
             this.buttonTorolPizza.TabIndex = 4;
             this.buttonTorolPizza.Text = "Töröl";
             this.buttonTorolPizza.UseVisualStyleBackColor = true;
-            this.buttonTorolPizza.Click += new System.EventHandler(this.buttonTorolPizza_Click);
             // 
             // buttonUjMentes
             // 
@@ -334,7 +350,6 @@
             this.buttonUjMentes.Text = "Új mentése";
             this.buttonUjMentes.UseVisualStyleBackColor = true;
             this.buttonUjMentes.Visible = false;
-            this.buttonUjMentes.Click += new System.EventHandler(this.buttonUjMentes_Click);
             // 
             // panelPizza
             // 
@@ -356,7 +371,6 @@
             this.textBoxPizzaAr.Name = "textBoxPizzaAr";
             this.textBoxPizzaAr.Size = new System.Drawing.Size(136, 20);
             this.textBoxPizzaAr.TabIndex = 5;
-            this.textBoxPizzaAr.TextChanged += new System.EventHandler(this.textBoxPizzaAr_TextChanged);
             // 
             // labelPizzaAr
             // 
@@ -373,7 +387,6 @@
             this.textBoxPizzaNev.Name = "textBoxPizzaNev";
             this.textBoxPizzaNev.Size = new System.Drawing.Size(136, 20);
             this.textBoxPizzaNev.TabIndex = 3;
-            this.textBoxPizzaNev.TextChanged += new System.EventHandler(this.textBoxPizzaNev_TextChanged);
             // 
             // labelPizzaNev
             // 
@@ -410,7 +423,6 @@
             this.buttonUjPizza.Text = "Új";
             this.buttonUjPizza.UseVisualStyleBackColor = true;
             this.buttonUjPizza.Visible = false;
-            this.buttonUjPizza.Click += new System.EventHandler(this.buttonUjPizza_Click);
             // 
             // buttonBetoltesPizzak
             // 
@@ -420,18 +432,24 @@
             this.buttonBetoltesPizzak.TabIndex = 1;
             this.buttonBetoltesPizzak.Text = "Betöltés";
             this.buttonBetoltesPizzak.UseVisualStyleBackColor = true;
-            this.buttonBetoltesPizzak.Click += new System.EventHandler(this.buttonBetoltesPizzak_Click);
             // 
-            // dataGridViewPizzak
+            // dataGridViewFutar
             // 
-            this.dataGridViewPizzak.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPizzak.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewPizzak.Name = "dataGridViewPizzak";
-            this.dataGridViewPizzak.Size = new System.Drawing.Size(652, 623);
-            this.dataGridViewPizzak.TabIndex = 0;
+            this.dataGridViewFutar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewFutar.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewFutar.Name = "dataGridViewFutar";
+            this.dataGridViewFutar.Size = new System.Drawing.Size(652, 623);
+            this.dataGridViewFutar.TabIndex = 0;
             // 
             // tabPageFutarok
             // 
+            this.tabPageFutarok.Controls.Add(this.buttonFutarMegsem);
+            this.tabPageFutarok.Controls.Add(this.panel1);
+            this.tabPageFutarok.Controls.Add(this.buttonUjMentese);
+            this.tabPageFutarok.Controls.Add(this.panel2);
+            this.tabPageFutarok.Controls.Add(this.buttonUjFutar);
+            this.tabPageFutarok.Controls.Add(this.buttonBetoltesFutar);
+            this.tabPageFutarok.Controls.Add(this.dataGridView1);
             this.tabPageFutarok.Location = new System.Drawing.Point(4, 22);
             this.tabPageFutarok.Name = "tabPageFutarok";
             this.tabPageFutarok.Padding = new System.Windows.Forms.Padding(3);
@@ -439,6 +457,145 @@
             this.tabPageFutarok.TabIndex = 1;
             this.tabPageFutarok.Text = "Futárok kezelése";
             this.tabPageFutarok.UseVisualStyleBackColor = true;
+            // 
+            // buttonFutarMegsem
+            // 
+            this.buttonFutarMegsem.Location = new System.Drawing.Point(909, 415);
+            this.buttonFutarMegsem.Name = "buttonFutarMegsem";
+            this.buttonFutarMegsem.Size = new System.Drawing.Size(75, 23);
+            this.buttonFutarMegsem.TabIndex = 14;
+            this.buttonFutarMegsem.Text = "Mégsem";
+            this.buttonFutarMegsem.UseVisualStyleBackColor = true;
+            this.buttonFutarMegsem.Visible = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.buttonModositFutar);
+            this.panel1.Controls.Add(this.buttonTorolFutar);
+            this.panel1.Location = new System.Drawing.Point(713, 158);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(271, 62);
+            this.panel1.TabIndex = 13;
+            this.panel1.Visible = false;
+            // 
+            // buttonModositFutar
+            // 
+            this.buttonModositFutar.Location = new System.Drawing.Point(16, 19);
+            this.buttonModositFutar.Name = "buttonModositFutar";
+            this.buttonModositFutar.Size = new System.Drawing.Size(75, 23);
+            this.buttonModositFutar.TabIndex = 3;
+            this.buttonModositFutar.Text = "Módosít";
+            this.buttonModositFutar.UseVisualStyleBackColor = true;
+            // 
+            // buttonTorolFutar
+            // 
+            this.buttonTorolFutar.Location = new System.Drawing.Point(152, 19);
+            this.buttonTorolFutar.Name = "buttonTorolFutar";
+            this.buttonTorolFutar.Size = new System.Drawing.Size(75, 23);
+            this.buttonTorolFutar.TabIndex = 4;
+            this.buttonTorolFutar.Text = "Töröl";
+            this.buttonTorolFutar.UseVisualStyleBackColor = true;
+            // 
+            // buttonUjMentese
+            // 
+            this.buttonUjMentese.Location = new System.Drawing.Point(822, 415);
+            this.buttonUjMentese.Name = "buttonUjMentese";
+            this.buttonUjMentese.Size = new System.Drawing.Size(75, 23);
+            this.buttonUjMentese.TabIndex = 12;
+            this.buttonUjMentese.Text = "Új mentése";
+            this.buttonUjMentese.UseVisualStyleBackColor = true;
+            this.buttonUjMentese.Visible = false;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.textBoxFutarTel);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.textBoxFutarNev);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.textBoxFutarAzon);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Location = new System.Drawing.Point(713, 236);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(271, 160);
+            this.panel2.TabIndex = 11;
+            this.panel2.Visible = false;
+            // 
+            // textBoxFutarTel
+            // 
+            this.textBoxFutarTel.Location = new System.Drawing.Point(113, 103);
+            this.textBoxFutarTel.Name = "textBoxFutarTel";
+            this.textBoxFutarTel.Size = new System.Drawing.Size(136, 20);
+            this.textBoxFutarTel.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 103);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Futár telefonszám";
+            // 
+            // textBoxFutarNev
+            // 
+            this.textBoxFutarNev.Location = new System.Drawing.Point(113, 65);
+            this.textBoxFutarNev.Name = "textBoxFutarNev";
+            this.textBoxFutarNev.Size = new System.Drawing.Size(136, 20);
+            this.textBoxFutarNev.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Futár név";
+            // 
+            // textBoxFutarAzon
+            // 
+            this.textBoxFutarAzon.Location = new System.Drawing.Point(113, 19);
+            this.textBoxFutarAzon.Name = "textBoxFutarAzon";
+            this.textBoxFutarAzon.ReadOnly = true;
+            this.textBoxFutarAzon.Size = new System.Drawing.Size(136, 20);
+            this.textBoxFutarAzon.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Futár azonosító";
+            // 
+            // buttonUjFutar
+            // 
+            this.buttonUjFutar.Location = new System.Drawing.Point(729, 415);
+            this.buttonUjFutar.Name = "buttonUjFutar";
+            this.buttonUjFutar.Size = new System.Drawing.Size(75, 23);
+            this.buttonUjFutar.TabIndex = 10;
+            this.buttonUjFutar.Text = "Új";
+            this.buttonUjFutar.UseVisualStyleBackColor = true;
+            this.buttonUjFutar.Visible = false;
+            // 
+            // buttonBetoltesFutar
+            // 
+            this.buttonBetoltesFutar.Location = new System.Drawing.Point(800, 15);
+            this.buttonBetoltesFutar.Name = "buttonBetoltesFutar";
+            this.buttonBetoltesFutar.Size = new System.Drawing.Size(75, 23);
+            this.buttonBetoltesFutar.TabIndex = 9;
+            this.buttonBetoltesFutar.Text = "Betöltés";
+            this.buttonBetoltesFutar.UseVisualStyleBackColor = true;
+            this.buttonBetoltesFutar.Click += new System.EventHandler(this.buttonBetoltesFutar_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(692, 620);
+            this.dataGridView1.TabIndex = 0;
             // 
             // tabPageMegrendelok
             // 
@@ -481,7 +638,12 @@
             this.panelModositTorolGombok.ResumeLayout(false);
             this.panelPizza.ResumeLayout(false);
             this.panelPizza.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPizzak)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFutar)).EndInit();
+            this.tabPageFutarok.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderPizzaName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderPizzaPrice)).EndInit();
             this.ResumeLayout(false);
@@ -514,7 +676,7 @@
         private System.Windows.Forms.Button buttonModositPizza;
         private System.Windows.Forms.Button buttonUjPizza;
         private System.Windows.Forms.Button buttonBetoltesPizzak;
-        private System.Windows.Forms.DataGridView dataGridViewPizzak;
+        private System.Windows.Forms.DataGridView dataGridViewFutar;
         private System.Windows.Forms.ToolStripMenuItem adatbázisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adatázbázisLétrehozásToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem feltöltésTesztadatokkalToolStripMenuItem;
@@ -533,6 +695,21 @@
         private System.Windows.Forms.Panel panelModositTorolGombok;
         private System.Windows.Forms.Button buttonUjMentes;
         private System.Windows.Forms.Button buttonMegsem;
+        private System.Windows.Forms.Button buttonFutarMegsem;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button buttonModositFutar;
+        private System.Windows.Forms.Button buttonTorolFutar;
+        private System.Windows.Forms.Button buttonUjMentese;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox textBoxFutarTel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxFutarNev;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBoxFutarAzon;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button buttonUjFutar;
+        private System.Windows.Forms.Button buttonBetoltesFutar;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 
