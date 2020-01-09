@@ -12,14 +12,14 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.Repository
 {
     partial class RepositoryDatabaseTablePizza
     {
-        public List<Pizza> getPizzasFromDatabaseTable()
+        public List<Futar> getPizzasFromDatabaseTable()
         {
-            List<Pizza> pizzas = new List<Pizza>();
+            List<Futar> pizzas = new List<Futar>();
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
-                string query = Pizza.getSQLCommandGetAllRecord();
+                string query = Futar.getSQLCommandGetAllRecord();
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 MySqlDataReader dr;
                 dr = cmd.ExecuteReader();
@@ -35,7 +35,7 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.Repository
                         goodResult = int.TryParse(dr["par"].ToString(), out price);
                         if (goodResult)
                         {
-                            Pizza p = new Pizza(id, name, price);
+                            Futar p = new Futar(id, name, price);
                             pizzas.Add(p);
                         }
                     }
@@ -71,7 +71,7 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.Repository
             }
         }
 
-        public void updatePizzaInDatabase(int id, Pizza modified)
+        public void updatePizzaInDatabase(int id, Futar modified)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
@@ -91,7 +91,7 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.Repository
             }
         }
 
-        public void insertPizzaToDatabase(Pizza ujPizza)
+        public void insertPizzaToDatabase(Futar ujPizza)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try

@@ -66,6 +66,7 @@
     <Compile Include="model\ModelPizzaNotValidNameExeption.cs" />
     <Compile Include="model\ModelPizzaNotValidPhonenumberException.cs" />
     <Compile Include="model\Pizza.cs" />
+    <Compile Include="model\FutarDatabase.cs" />
     <Compile Include="model\PizzaDatabase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

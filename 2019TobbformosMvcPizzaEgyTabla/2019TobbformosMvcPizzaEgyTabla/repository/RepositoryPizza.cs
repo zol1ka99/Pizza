@@ -11,14 +11,14 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.Repository
 {
     partial class Repository
     {
-        List<Pizza> pizzas;
+        List<Futar> pizzas;
 
-        public List<Pizza> getPizzas()
+        public List<Futar> getPizzas()
         {
             return pizzas;
         }
 
-        public void setPizzas(List<Pizza> pizzas)
+        public void setPizzas(List<Futar> pizzas)
         {
             this.pizzas = pizzas;
         }
@@ -39,7 +39,7 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.Repository
             pizzaDT.Columns.Add("azon", typeof(int));
             pizzaDT.Columns.Add("nev", typeof(string));
             pizzaDT.Columns.Add("ar", typeof(int));
-            foreach (Pizza p in pizzas)
+            foreach (Futar p in pizzas)
             {
                 pizzaDT.Rows.Add(p.getId(), p.getNeme(), p.getPrice());
             }
@@ -53,30 +53,30 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.Repository
                 int azon = Convert.ToInt32(row[0]);
                 string nev = row[1].ToString();
                 int ar = Convert.ToInt32(row[2]);
-                Pizza p = new Pizza(azon, nev, ar);
+                Futar p = new Futar(azon, nev, ar);
                 pizzas.Add(p);
             }
         }
 
         public void deletePizzaFromList(int id)
         {
-            Pizza p = pizzas.Find(x => x.getId() == id);
+            Futar p = pizzas.Find(x => x.getId() == id);
             if (p != null)
                 pizzas.Remove(p);
             else
                 throw new RepositoryExceptionCantDelete("A pizzát nem lehetett törölni.");
         }
 
-        public void updatePizzaInList(int id,Pizza modified)
+        public void updatePizzaInList(int id,Futar modified)
         {
-            Pizza p = pizzas.Find(x => x.getId() == id);
+            Futar p = pizzas.Find(x => x.getId() == id);
             if (p != null)
                 p.update(modified);
             else
                 throw new RepositoryExceptionCantModified("A pizza módosítása nem sikerült");
         }
 
-        public void addPizzaToList(Pizza ujPizza)
+        public void addPizzaToList(Futar ujPizza)
         {
             try
             {
@@ -88,7 +88,7 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.Repository
             }
         }
 
-        public Pizza getPizza(int id)
+        public Futar getPizza(int id)
         {
             return pizzas.Find(x => x.getId() == id);
         }

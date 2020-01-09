@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace TobbbformosPizzaAlkalmazasEgyTabla.Model
 {
-    partial class Pizza
+    partial class Futar
     {
         private int id;
         private string name;
         private int price;
 
-        public Pizza(int id, string name, int price)
+        public Futar(int id, string name, int price)
         {
             this.id = id;
             this.name = name;
             this.price = price;
         }
 
-        public Pizza(int id, string name, string price)
+        public Futar(int id, string name, string price)
         {
             this.id = id;
             if (!isValidName(name))
@@ -30,7 +30,7 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.Model
             this.price = Convert.ToInt32(price);           
         }
 
-        public void update(Pizza modified)
+        public void update(Futar modified)
         {
             this.name = modified.getNeme();
             this.price = modified.getPrice();

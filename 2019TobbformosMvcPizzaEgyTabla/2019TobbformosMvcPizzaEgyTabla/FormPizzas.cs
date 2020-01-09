@@ -158,7 +158,7 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             errorProviderPizzaPrice.Clear();
             try
             {
-                Pizza modosult = new Pizza(
+                Futar modosult = new Futar(
                     Convert.ToInt32(textBoxPizzaAzonosito.Text),
                     textBoxPizzaNev.Text,
                     textBoxPizzaAr.Text
@@ -211,7 +211,7 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             errorProviderPizzaPrice.Clear();
             try
             {
-                Pizza ujPizza = new Pizza(
+                Futar ujPizza = new Futar(
                     Convert.ToInt32(textBoxPizzaAzonosito.Text),
                     textBoxPizzaNev.Text,
                     textBoxPizzaAr.Text

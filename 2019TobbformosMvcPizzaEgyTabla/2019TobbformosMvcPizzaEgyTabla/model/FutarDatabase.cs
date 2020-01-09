@@ -11,7 +11,7 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.Model
         public string getInsert()
         {
             return
-                "INSERT INTO `ppizza` (`pazon`, `pnev`, `par`) " +
+                "INSERT INTO `pfutar` (`fazon`, `fnev`, `ftel`) " +
                 "VALUES ('" +
                 id +
                 "', '" +
@@ -24,22 +24,22 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.Model
         public string getUpdate(int id)
         {
             return
-                "UPDATE `ppizza` SET `pnev` = '" +
+                "UPDATE `pfutar` SET `fnev` = '" +
                 getNeme() +
-                "', `par` = '" +
+                "', `ftel` = '" +
                 getPrice() +
-                "' WHERE `ppizza`.`pazon` = " +
+                "' WHERE `ppizza`.`fazon` = " +
                 id;
         }
 
         public static string getSQLCommandDeleteAllRecord()
         {
-            return "DELETE FROM ppizza";
+            return "DELETE FROM pfutar";
         }
 
         public static string getSQLCommandGetAllRecord()
         {
-            return "SELECT * FROM ppizza";
+            return "SELECT * FROM pfutar";
         }
     }
 }

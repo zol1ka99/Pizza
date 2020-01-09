@@ -94,7 +94,7 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.Repository
             try
             {
                 connection.Open();
-                string query = Pizza.getSQLCommandDeleteAllRecord();
+                string query = Futar.getSQLCommandDeleteAllRecord();
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
             }
