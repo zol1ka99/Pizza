@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TobbbformosPizzaAlkalmazasEgyTabla.Model
+namespace TobbbformosPizzaAlkalmazasEgyTabla
 {
     partial class Futar
     {
@@ -15,9 +15,9 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.Model
                 "VALUES ('" +
                 id +
                 "', '" +
-                getNeme() +
+                getName() +
                 "', '" +
-                getPrice() +
+                getTel() +
                 "');";
         }
 
@@ -25,10 +25,10 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.Model
         {
             return
                 "UPDATE `pfutar` SET `fnev` = '" +
-                getNeme() +
+                getName() +
                 "', `ftel` = '" +
-                getPrice() +
-                "' WHERE `ppizza`.`fazon` = " +
+                getTel() +
+                "' WHERE `pfutar`.`fazon` = " +
                 id;
         }
 

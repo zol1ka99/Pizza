@@ -10,13 +10,13 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.model
     {
         public string getCreateString()
         {
-            return
-                 "SERVER=\"localhost\";"
+            return "SERVER =\"localhost\";"
                  + "DATABASE=\"test\";"
                  + "UID=\"root\";"
                  + "PASSWORD=\"\";"
                  + "PORT=\"3306\";";
         }
+
         public string getConnectionString()
         {
             return

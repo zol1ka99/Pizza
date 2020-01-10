@@ -36,15 +36,14 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             frissitAdatokkalDataGriedViewt();
             beallitPizzaDataGriViewt();
             beallitGombokatIndulaskor();            
-
-            dataGridViewFutar.SelectionChanged += DataGridViewPizzak_SelectionChanged;
+            dataGridViewPizzak.SelectionChanged += DataGridViewPizzak_SelectionChanged;
         }
 
         private void beallitGombokatIndulaskor()
         {
             panelPizza.Visible = false;
             panelModositTorolGombok.Visible = false ;
-            if (dataGridViewFutar.SelectedRows.Count != 0)
+            if (dataGridViewPizzak.SelectedRows.Count != 0)
                 buttonUjPizza.Visible = false;
             else
                 buttonUjPizza.Visible = true;
@@ -57,17 +56,17 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             {
                 beallitGombokatKattintaskor();
             }           
-            if (dataGridViewFutar.SelectedRows.Count == 1)
+            if (dataGridViewPizzak.SelectedRows.Count == 1)
             {
                 panelPizza.Visible = true;
                 panelModositTorolGombok.Visible = true;
                 buttonUjPizza.Visible = true;
                 textBoxPizzaAzonosito.Text =
-                    dataGridViewFutar.SelectedRows[0].Cells[0].Value.ToString();
+                    dataGridViewPizzak.SelectedRows[0].Cells[0].Value.ToString();
                 textBoxPizzaNev.Text =
-                    dataGridViewFutar.SelectedRows[0].Cells[1].Value.ToString();
+                    dataGridViewPizzak.SelectedRows[0].Cells[1].Value.ToString();
                 textBoxPizzaAr.Text =
-                    dataGridViewFutar.SelectedRows[0].Cells[2].Value.ToString();
+                    dataGridViewPizzak.SelectedRows[0].Cells[2].Value.ToString();
             }
             else
             {
@@ -82,8 +81,8 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             //Adattáblát feltölti a repoba lévő pizza listából
             pizzasDT = repo.getPizzaDataTableFromList();
             //Pizza DataGridView-nak a forrása a pizza adattábla
-            dataGridViewFutar.DataSource = null;
-            dataGridViewFutar.DataSource = pizzasDT;
+            dataGridViewPizzak.DataSource = null;
+            dataGridViewPizzak.DataSource = pizzasDT;
         }
 
         private void beallitPizzaDataGriViewt()
@@ -95,22 +94,22 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             pizzasDT.Columns[2].ColumnName = "Ár";
             pizzasDT.Columns[2].Caption = "Pizza ár";
 
-            dataGridViewFutar.SelectionMode =
+            dataGridViewPizzak.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewFutar.ReadOnly = true;
-            dataGridViewFutar.AllowUserToDeleteRows = false;
-            dataGridViewFutar.AllowUserToAddRows = false;
-            dataGridViewFutar.MultiSelect = false;
+            dataGridViewPizzak.ReadOnly = true;
+            dataGridViewPizzak.AllowUserToDeleteRows = false;
+            dataGridViewPizzak.AllowUserToAddRows = false;
+            dataGridViewPizzak.MultiSelect = false;
         }
 
         private void buttonTorolPizza_Click(object sender, EventArgs e)
         {
             torolHibauzenetet();
-            if ((dataGridViewFutar.Rows == null) ||
-                (dataGridViewFutar.Rows.Count == 0))
+            if ((dataGridViewPizzak.Rows == null) ||
+                (dataGridViewPizzak.Rows.Count == 0))
                 return;
             //A felhasználó által kiválasztott sor a DataGridView-ban            
-            int sor = dataGridViewFutar.SelectedRows[0].Index;
+            int sor = dataGridViewPizzak.SelectedRows[0].Index;
             if (MessageBox.Show(
                 "Valóban törölni akarja a sort?",
                 "Törlés",
@@ -120,7 +119,7 @@ namespace _2019TobbformosMvcPizzaEgyTabla
                 //1. törölni kell a listából
                 int id = -1;
                 if (!int.TryParse(
-                         dataGridViewFutar.SelectedRows[0].Cells[0].Value.ToString(),
+                         dataGridViewPizzak.SelectedRows[0].Cells[0].Value.ToString(),
                          out id))
                     return;
                 try
@@ -144,7 +143,7 @@ namespace _2019TobbformosMvcPizzaEgyTabla
                 }
                 //3. frissíteni kell a DataGridView-t  
                 frissitAdatokkalDataGriedViewt();
-                if (dataGridViewFutar.SelectedRows.Count <= 0)
+                if (dataGridViewPizzak.SelectedRows.Count <= 0)
                 {
                     buttonUjPizza.Visible = true;
                 }
@@ -158,7 +157,7 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             errorProviderPizzaPrice.Clear();
             try
             {
-                Futar modosult = new Futar(
+                Pizza modosult = new Pizza(
                     Convert.ToInt32(textBoxPizzaAzonosito.Text),
                     textBoxPizzaNev.Text,
                     textBoxPizzaAr.Text
@@ -211,7 +210,7 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             errorProviderPizzaPrice.Clear();
             try
             {
-                Futar ujPizza = new Futar(
+                Pizza ujPizza = new Pizza(
                     Convert.ToInt32(textBoxPizzaAzonosito.Text),
                     textBoxPizzaNev.Text,
                     textBoxPizzaAr.Text
@@ -240,7 +239,7 @@ namespace _2019TobbformosMvcPizzaEgyTabla
                 //3. Frissíteni a DataGridView-t
                 beallitGombokatUjPizzaMegsemEsMentes();
                 frissitAdatokkalDataGriedViewt();
-                if (dataGridViewFutar.SelectedRows.Count == 1)
+                if (dataGridViewPizzak.SelectedRows.Count == 1)
                 {
                     beallitPizzaDataGriViewt();
                 }
@@ -274,9 +273,9 @@ namespace _2019TobbformosMvcPizzaEgyTabla
 
         private void beallitGombokatUjPizzaMegsemEsMentes()
         {
-            if ((dataGridViewFutar.Rows != null) &&
-                (dataGridViewFutar.Rows.Count > 0))
-                dataGridViewFutar.Rows[0].Selected = true;
+            if ((dataGridViewPizzak.Rows != null) &&
+                (dataGridViewPizzak.Rows.Count > 0))
+                dataGridViewPizzak.Rows[0].Selected = true;
             buttonUjMentes.Visible = false;
             buttonMegsem.Visible = false;
             panelModositTorolGombok.Visible = true;

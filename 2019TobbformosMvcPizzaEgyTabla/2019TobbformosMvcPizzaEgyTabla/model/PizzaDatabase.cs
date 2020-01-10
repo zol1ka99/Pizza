@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TobbbformosPizzaAlkalmazasEgyTabla.Model
 {
-    partial class Futar
+    partial class Pizza
     {
         public string getInsert()
         {

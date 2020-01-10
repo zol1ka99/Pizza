@@ -22,7 +22,7 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.Repository
         public RepositoryDatabase()
         {
             ConnectionString cs = new ConnectionString();
-            connectionStringCreate = cs.getConnectionString();
+            connectionStringCreate = cs.getCreateString();
             connectionString = cs.getConnectionString();
         }
 
