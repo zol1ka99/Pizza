@@ -49,7 +49,11 @@ namespace TobbformosMvcPizzaTobbTabla
                 lvi.SubItems.Add(megrendelo.getDone().ToString());
 
                 listViewRendelesek.Items.Add(lvi);
+                listViewRendelesek.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
+                listViewRendelesek.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent);
+                listViewRendelesek.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.ColumnContent);
                 listViewRendelesek.AutoResizeColumn(3, ColumnHeaderAutoResizeStyle.ColumnContent);
+                listViewRendelesek.AutoResizeColumn(4, ColumnHeaderAutoResizeStyle.ColumnContent);
 
             }
         }
