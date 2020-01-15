@@ -62,6 +62,7 @@ namespace TobbformosMvcPizzaTobbTabla
 
             listViewRendelesek.GridLines = true;
             listViewRendelesek.View = View.Details;
+            listViewRendelesek.FullRowSelect = true;
 
             listViewRendelesek.Columns.Add("Azonosító");
             listViewRendelesek.Columns.Add("Futár");
