@@ -44,7 +44,7 @@ namespace TobbformosMvcPizzaTobbTabla
                 ListViewItem lvi = new ListViewItem(megrendelo.getOrderId().ToString());
                 lvi.SubItems.Add(megrendelo.getCourierId().ToString());
                 lvi.SubItems.Add(megrendelo.getCustomerId().ToString());
-                lvi.SubItems.Add(megrendelo.getDate().ToString());
+                lvi.SubItems.Add(megrendelo.getDate().Substring(0,13).ToString());
                 lvi.SubItems.Add(megrendelo.getTime().ToString());
                 lvi.SubItems.Add(megrendelo.getDone().ToString());
 
