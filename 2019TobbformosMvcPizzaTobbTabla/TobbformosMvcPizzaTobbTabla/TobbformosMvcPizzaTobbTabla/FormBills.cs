@@ -45,10 +45,11 @@ namespace TobbformosMvcPizzaTobbTabla
                 lvi.SubItems.Add(megrendelo.getCourierId().ToString());
                 lvi.SubItems.Add(megrendelo.getCustomerId().ToString());
                 lvi.SubItems.Add(megrendelo.getDate().Substring(0,13).ToString());
-                lvi.SubItems.Add(megrendelo.getTime().ToString());
+                lvi.SubItems.Add(megrendelo.getTime().ToString().Replace(',',':'));
                 lvi.SubItems.Add(megrendelo.getDone().ToString());
 
                 listViewRendelesek.Items.Add(lvi);
+                listViewRendelesek.AutoResizeColumn(3, ColumnHeaderAutoResizeStyle.ColumnContent);
 
             }
         }
