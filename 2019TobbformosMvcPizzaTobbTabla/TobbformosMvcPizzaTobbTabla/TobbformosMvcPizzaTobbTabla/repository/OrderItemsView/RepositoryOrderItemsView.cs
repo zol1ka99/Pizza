@@ -20,7 +20,11 @@ namespace TobbbformosPizzaAlkalmazasTobbTabla.Repository
         /// <param name="orderNumber">Rendelés azonosító</param>
         public RepositoryOrderItemsView(int orderNumber, List<Item> items, List<Pizza> pizzas)
         {
-            
+            List<Item> iviews = items.FindAll(i => i.getOrderId() == orderNumber);
+            foreach (Item i in iviews)
+            {
+                Pizza pizza = pizzas.Find(p => p.getId() == i.getPizzaId());
+            }
         }
     }
 }

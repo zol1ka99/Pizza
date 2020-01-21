@@ -31,7 +31,7 @@ namespace TobbbformosPizzaAlkalmazasTobbTabla.Repository
             itemDT.Columns.Add("db", typeof(int));
             foreach (Item i in items)
             {
-                itemDT.Rows.Add(i.getItemId(),i.getPizzaId(),i.getPiece());
+                itemDT.Rows.Add(i.getOrderId(),i.getPizzaId(),i.getPiece());
             }
             return itemDT;
         }
