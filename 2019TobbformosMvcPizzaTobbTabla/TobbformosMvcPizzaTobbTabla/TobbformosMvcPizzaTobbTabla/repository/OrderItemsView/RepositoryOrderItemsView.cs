@@ -13,7 +13,7 @@ namespace TobbbformosPizzaAlkalmazasTobbTabla.Repository
         /// <summary>
         /// Rendelések tételeit tartalmazza a megjelenítéshez
         /// </summary>
-        private List<RepositoryOrderItemsView> roiv;
+        private List<OrderItemsView> roiv;
 
         /// <summary>
         /// Konstruktor, amely a rendelés száma alapján feltölti a listát
@@ -30,6 +30,7 @@ namespace TobbbformosPizzaAlkalmazasTobbTabla.Repository
                     i.getPiece(),
                     pizza.getNeme(),
                     pizza.getPrice());
+                roiv.Add(oiv);
             }
         }
     }
