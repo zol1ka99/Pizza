@@ -517,6 +517,7 @@
             this.listViewRendelesek.Size = new System.Drawing.Size(404, 333);
             this.listViewRendelesek.TabIndex = 2;
             this.listViewRendelesek.UseCompatibleStateImageBehavior = false;
+            this.listViewRendelesek.SelectedIndexChanged += new System.EventHandler(this.listViewRendelesek_SelectedIndexChanged);
             // 
             // comboBoxMegrendelok
             // 

@@ -69,14 +69,14 @@ namespace TobbformosMvcPizzaTobbTabla
                 rdCustomer.createTableCustomer();
                 rdCourier.createTableCourier();
                 rdOrder.createTableOrder();
-                rdItem.createTableOrder();
+                rdItem.createTableItem();
 
                 //tesztadatok feltöltése adatbázisba
                 rdPizza.fillPizzasWithTestDataFromSQLCommand();
                 rdCustomer.fillCustomerkWithTestDataFromSQLCommand();
                 rdCourier.fillCourierWithTestDataFromSQLCommand();
                 rdOrder.fillOrderWithTestDataFromSQLCommand();
-                rdItem.fillOrderWithTestDataFromSQLCommand();
+                rdItem.fillItemWithTestDataFromSQLCommand();
 
                 //adatbázisból listák feltöltése
                 repo.setPizzas(rdPizza.getPizzasFromDatabaseTable());
@@ -98,6 +98,9 @@ namespace TobbformosMvcPizzaTobbTabla
                 torolHibauzenetet();
                 rdPizza.deleteTablePizza();
                 rdCustomer.deleteTableCustomer();
+                rdCourier.deleteTableCourier();
+                rdOrder.deleteTableOrder();
+                rdItem.deleteTableItem();
             }
             catch (Exception ex)
             {

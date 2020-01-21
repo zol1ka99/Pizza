@@ -8,20 +8,20 @@ namespace TobbbformosPizzaAlkalmazasTobbTabla.Model
 {
     partial class Item
     {
-        private int orderId;
+        private int itemId;
         private int pizzaId;
         private int piece;
 
-        public Item(int orderId, int pizzaId, int piece)
+        public Item(int itemID, int pizzaId, int piece)
         {
-            this.orderId = orderId;
+            this.itemId = itemID;
             this.pizzaId = pizzaId;
             this.piece = piece;
         }
 
-        public int getOrderId()
+        public int getItemId()
         {
-            return orderId;
+            return itemId;
         }
 
         public int getPizzaId()

@@ -27,9 +27,12 @@ namespace TobbformosMvcPizzaTobbTabla
 
         private void comboBoxMegrendelok_SelectedIndexChanged(object sender, EventArgs e)
         {
+            dataGridViewTelelek.Visible = false;
+            labelTelelek.Visible = false;
             if (comboBoxMegrendelok.SelectedIndex < 0)
                 return;
             listViewRendelesek.Visible = true;
+            labelRendelesek.Visible = true;
 
             string megrendeloNev = comboBoxMegrendelok.Text;
             feltoltListViewtAdatokkal(megrendeloNev);
@@ -37,27 +40,26 @@ namespace TobbformosMvcPizzaTobbTabla
 
         private void feltoltListViewtAdatokkal(string megrendeloNev)
         {
+            listViewRendelesek.Items.Clear();
             List<Order> megrendelok=repo.getOrders(megrendeloNev);
-
             foreach(Order megrendelo in megrendelok)
             {
                 ListViewItem lvi = new ListViewItem(megrendelo.getOrderId().ToString());
                 lvi.SubItems.Add(megrendelo.getCourierId().ToString());
                 lvi.SubItems.Add(megrendelo.getCustomerId().ToString());
                 lvi.SubItems.Add(megrendelo.getDate().Substring(0,13).ToString());
-
                 lvi.SubItems.Add(megrendelo.getTime().ToString().Replace(',',':'));
-                lvi.SubItems.Add(megrendelo.getDone().ToString());
-
+                if (megrendelo.getDone())
+                    lvi.SubItems.Add("Teljesítve");
+                else
+                    lvi.SubItems.Add("Nem teljesítve");
                 listViewRendelesek.Items.Add(lvi);
-                listViewRendelesek.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.HeaderSize);
-                listViewRendelesek.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.HeaderSize);
-                listViewRendelesek.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.ColumnContent);
-                listViewRendelesek.AutoResizeColumn(3, ColumnHeaderAutoResizeStyle.ColumnContent);
-                listViewRendelesek.AutoResizeColumn(4, ColumnHeaderAutoResizeStyle.ColumnContent);
-                listViewRendelesek.AutoResizeColumn(5, ColumnHeaderAutoResizeStyle.HeaderSize);
-
             }
+            listViewRendelesek.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.HeaderSize);
+            listViewRendelesek.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.HeaderSize);
+            listViewRendelesek.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.HeaderSize);
+            listViewRendelesek.AutoResizeColumn(3, ColumnHeaderAutoResizeStyle.ColumnContent);
+            listViewRendelesek.AutoResizeColumn(5, ColumnHeaderAutoResizeStyle.ColumnContent);
         }
 
         private void beallitSzamlakTabPagetIndulaskor()
@@ -77,6 +79,24 @@ namespace TobbformosMvcPizzaTobbTabla
             listViewRendelesek.Columns.Add("Dátum");
             listViewRendelesek.Columns.Add("Idő");
             listViewRendelesek.Columns.Add("Teljesités");
+
+            listViewRendelesek.Columns[1].TextAlign = HorizontalAlignment.Right;
+            listViewRendelesek.Columns[2].TextAlign = HorizontalAlignment.Right;
+            listViewRendelesek.Columns[3].TextAlign = HorizontalAlignment.Right;
+        }
+
+        private void listViewRendelesek_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listViewRendelesek.SelectedItems.Count == 1)
+            {
+                dataGridViewTelelek.Visible = true;
+                labelTelelek.Visible = true;
+            }
+            else
+            {
+                dataGridViewTelelek.Visible = false;
+                labelTelelek.Visible = false;
+            }
 
         }
     }
