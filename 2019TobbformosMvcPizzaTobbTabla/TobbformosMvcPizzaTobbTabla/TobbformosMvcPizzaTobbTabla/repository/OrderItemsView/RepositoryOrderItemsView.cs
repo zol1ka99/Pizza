@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TobbbformosPizzaAlkalmazasTobbTabla.model;
 using TobbbformosPizzaAlkalmazasTobbTabla.Model;
 
 namespace TobbbformosPizzaAlkalmazasTobbTabla.Repository
@@ -24,6 +25,11 @@ namespace TobbbformosPizzaAlkalmazasTobbTabla.Repository
             foreach (Item i in iviews)
             {
                 Pizza pizza = pizzas.Find(p => p.getId() == i.getPizzaId());
+                OrderItemsView oiv = new OrderItemsView(
+                    orderNumber,
+                    i.getPiece(),
+                    pizza.getNeme(),
+                    pizza.getPrice());
             }
         }
     }
