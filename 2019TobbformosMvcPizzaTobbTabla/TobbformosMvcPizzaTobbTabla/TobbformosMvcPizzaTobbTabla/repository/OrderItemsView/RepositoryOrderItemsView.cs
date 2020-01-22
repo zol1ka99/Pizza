@@ -15,6 +15,8 @@ namespace TobbbformosPizzaAlkalmazasTobbTabla.Repository
         /// </summary>
         private List<OrderItemsView> roiv;
 
+        private int finalPrice = 0;
+
         /// <summary>
         /// Konstruktor, amely a rendelés száma alapján feltölti a listát
         /// </summary>
@@ -25,6 +27,7 @@ namespace TobbbformosPizzaAlkalmazasTobbTabla.Repository
             foreach (Item i in iviews)
             {
                 Pizza pizza = pizzas.Find(p => p.getId() == i.getPizzaId());
+                finalPrice = finalPrice + i.getPiece() * pizza.getPrice();
                 OrderItemsView oiv = new OrderItemsView(
                     orderNumber,
                     i.getPiece(),
@@ -32,6 +35,11 @@ namespace TobbbformosPizzaAlkalmazasTobbTabla.Repository
                     pizza.getPrice());
                 roiv.Add(oiv);
             }
+        }
+
+        public int getFinalPrice()
+        {
+            return finalPrice;
         }
     }
 }
