@@ -20,5 +20,10 @@ namespace TobbbformosPizzaAlkalmazasTobbTabla.model
             this.name = name;
             this.price = price;
         }
+
+        public int OrderId { get => orderId; set => orderId = value; }
+        public int Piece { get => piece; set => piece = value; }
+        public string Name { get => name; set => name = value; }
+        public int Price { get => price; set => price = value; }
     }
 }
