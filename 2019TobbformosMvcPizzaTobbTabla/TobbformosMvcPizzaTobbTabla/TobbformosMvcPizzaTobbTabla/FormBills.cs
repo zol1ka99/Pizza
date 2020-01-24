@@ -115,6 +115,11 @@ namespace TobbformosMvcPizzaTobbTabla
                 repo.getItems(),
                 repo.getPizzas()
                 );
+
+            dataGridViewTelelek.DataSource = roiv.getOrderItemsViewDT();
+
+            textBoxVegosszeg.ReadOnly = true;
+            textBoxVegosszeg.Text = roiv.getFinalPrice.ToString();
         }
     }
 }
