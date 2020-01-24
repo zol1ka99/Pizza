@@ -18,6 +18,8 @@ namespace TobbbformosPizzaAlkalmazasTobbTabla.Repository
 
         private int finalPrice = 0;
 
+       
+
         /// <summary>
         /// Konstruktor, amely a rendelés száma alapján feltölti a listát
         /// </summary>
@@ -37,6 +39,8 @@ namespace TobbbformosPizzaAlkalmazasTobbTabla.Repository
                 roiv.Add(oiv);
             }
         }
+
+        //roiv = new List<OrderItemsView>();
 
         public int getFinalPrice()
         {
@@ -59,5 +63,6 @@ namespace TobbbformosPizzaAlkalmazasTobbTabla.Repository
 
             return DT;
         }
+        
     }
 }

@@ -91,6 +91,7 @@ namespace TobbformosMvcPizzaTobbTabla
             {
                 dataGridViewTelelek.Visible = true;
                 labelTelelek.Visible = true;
+                feltoltDataGridViewAdatokkal();
             }
             else
             {
@@ -98,6 +99,22 @@ namespace TobbformosMvcPizzaTobbTabla
                 labelTelelek.Visible = false;
             }
 
+        }
+
+        private void feltoltDataGridViewAdatokkal()
+        {
+            dataGridViewTelelek.DataSource = null;
+
+            string megrendeloNev = comboBoxMegrendelok.Text;
+            int orderNumber = repo.getCustomersNumber(megrendeloNev);
+
+
+
+            RepositoryOrderItemsView roiv = new RepositoryOrderItemsView(
+                orderNumber,
+                repo.getItems(),
+                repo.getPizzas()
+                );
         }
     }
 }
