@@ -137,7 +137,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icons\Load-icon.png" />
-    <Content Include="icons\Pizza.jpg" />
     <Content Include="icons\Save-icon.png" />
     <Content Include="icons\Tools-icon.png" />
     <Content Include="sql\pizza.sql" />

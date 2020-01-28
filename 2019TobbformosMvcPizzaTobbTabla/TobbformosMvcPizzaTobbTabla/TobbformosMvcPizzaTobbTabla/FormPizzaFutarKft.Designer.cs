@@ -79,6 +79,8 @@
             this.labelMegrendelo = new System.Windows.Forms.Label();
             this.errorProviderPizzaName = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderPizzaPrice = new System.Windows.Forms.ErrorProvider(this.components);
+            this.textBoxVegOsszeg = new System.Windows.Forms.TextBox();
+            this.labelVegOsszeg = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.toolStripStatus.SuspendLayout();
             this.toolStripToolbar.SuspendLayout();
@@ -469,6 +471,8 @@
             // 
             // tabPageSzamlak
             // 
+            this.tabPageSzamlak.Controls.Add(this.labelVegOsszeg);
+            this.tabPageSzamlak.Controls.Add(this.textBoxVegOsszeg);
             this.tabPageSzamlak.Controls.Add(this.dataGridViewTelelek);
             this.tabPageSzamlak.Controls.Add(this.labelTelelek);
             this.tabPageSzamlak.Controls.Add(this.labelRendelesek);
@@ -544,6 +548,22 @@
             // errorProviderPizzaPrice
             // 
             this.errorProviderPizzaPrice.ContainerControl = this;
+            // 
+            // textBoxVegOsszeg
+            // 
+            this.textBoxVegOsszeg.Location = new System.Drawing.Point(851, 406);
+            this.textBoxVegOsszeg.Name = "textBoxVegOsszeg";
+            this.textBoxVegOsszeg.Size = new System.Drawing.Size(100, 20);
+            this.textBoxVegOsszeg.TabIndex = 6;
+            // 
+            // labelVegOsszeg
+            // 
+            this.labelVegOsszeg.AutoSize = true;
+            this.labelVegOsszeg.Location = new System.Drawing.Point(453, 407);
+            this.labelVegOsszeg.Name = "labelVegOsszeg";
+            this.labelVegOsszeg.Size = new System.Drawing.Size(117, 13);
+            this.labelVegOsszeg.TabIndex = 7;
+            this.labelVegOsszeg.Text = "A fizetendő végösszeg:";
             // 
             // FormPizzaFutarKft
             // 
@@ -631,6 +651,8 @@
         private System.Windows.Forms.ListView listViewRendelesek;
         private System.Windows.Forms.ComboBox comboBoxMegrendelok;
         private System.Windows.Forms.Label labelMegrendelo;
+        private System.Windows.Forms.Label labelVegOsszeg;
+        private System.Windows.Forms.TextBox textBoxVegOsszeg;
     }
 }
 

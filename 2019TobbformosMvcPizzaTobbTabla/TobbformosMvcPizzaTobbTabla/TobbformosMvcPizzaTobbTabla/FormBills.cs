@@ -78,7 +78,7 @@ namespace TobbformosMvcPizzaTobbTabla
             listViewRendelesek.Columns.Add("Megrendelő");
             listViewRendelesek.Columns.Add("Dátum");
             listViewRendelesek.Columns.Add("Idő");
-            listViewRendelesek.Columns.Add("Teljesités");
+            listViewRendelesek.Columns.Add("Teljesités");            
 
             listViewRendelesek.Columns[1].TextAlign = HorizontalAlignment.Right;
             listViewRendelesek.Columns[2].TextAlign = HorizontalAlignment.Right;
@@ -106,20 +106,27 @@ namespace TobbformosMvcPizzaTobbTabla
             dataGridViewTelelek.DataSource = null;
 
             string megrendeloNev = comboBoxMegrendelok.Text;
-            int orderNumber = repo.getCustomersNumber(megrendeloNev);
-
-
+            //int orderNumber = repo.getCustomerNumber(megrendeloNev);            
+            int orderNumber =
+                Convert.ToInt32(listViewRendelesek.SelectedItems[0].Text);
 
             RepositoryOrderItemsView roiv = new RepositoryOrderItemsView(
-                orderNumber,
-                repo.getItems(),
-                repo.getPizzas()
+                       orderNumber,
+                       repo.getItems(),
+                       repo.getPizzas()
                 );
 
             dataGridViewTelelek.DataSource = roiv.getOrderItemsViewDT();
 
-            textBoxVegosszeg.ReadOnly = true;
-            textBoxVegosszeg.Text = roiv.getFinalPrice.ToString();
+            dataGridViewTelelek.ReadOnly = true;
+
+            dataGridViewTelelek.Columns["pizza_nev"].HeaderText = "Pizza név";
+            dataGridViewTelelek.Columns["mennyiseg"].HeaderText = "Mennyiség";
+            dataGridViewTelelek.Columns["egysegar"].HeaderText = "Egységár";
+            dataGridViewTelelek.Columns["tetelar"].HeaderText = "Tételár";
+
+            textBoxVegOsszeg.ReadOnly = true;
+            textBoxVegOsszeg.Text = roiv.getFinalPrice().ToString();
         }
     }
 }
