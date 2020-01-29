@@ -18,6 +18,16 @@ namespace TobbbformosPizzaAlkalmazasTobbTabla.Repository
             return pizzas;
         }
 
+        public List<string>getPizzasName()
+        {
+            List<string> pizzaNames = new List<string>();
+            foreach(Pizza p in pizzas)
+            {
+                pizzaNames.Add(p.getNeme());
+            }
+            return pizzaNames;
+        }
+
         public void setPizzas(List<Pizza> pizzas)
         {
             this.pizzas = pizzas;

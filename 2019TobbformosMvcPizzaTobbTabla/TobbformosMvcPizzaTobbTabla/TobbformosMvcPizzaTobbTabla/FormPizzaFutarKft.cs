@@ -38,9 +38,10 @@ namespace TobbformosMvcPizzaTobbTabla
 
             //megrendelés készítés
             fillComboBoxCustomer();
+            createDinamicDataGridViewOrders();
         }
 
-        
+
 
         private void megrendelőToolStripMenuItem_Click(object sender, EventArgs e)
         {

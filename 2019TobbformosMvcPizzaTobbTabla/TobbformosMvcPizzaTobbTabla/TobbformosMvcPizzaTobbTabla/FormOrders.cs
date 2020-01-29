@@ -14,9 +14,27 @@ namespace TobbformosMvcPizzaTobbTabla
 {
     public partial class FormPizzaFutarKft : Form
     {
+        DataGridView dgv = new DataGridView();
         private void fillComboBoxCustomer()
         {
-            
+            comboBoxCustomer.DataSource = null;
+            comboBoxCustomer.DataSource = repo.getCustumersName();
+        }
+
+        private void createDinamicDataGridViewOrders()
+        {
+            DataGridViewComboBoxColumn cbc = new DataGridViewComboBoxColumn();
+            cbc.Name = "pizzaName";
+            cbc.HeaderText = "Pizza név";
+            cbc.MaxDropDownItems = 5;
+            cbc.DataSource = repo.getPizzas();
+
+            dgv.Location = new Point(30, 50);
+
+            dgv.Columns.Add(cbc);
+
+            tabPageMegrendeles.Controls.Add(dgv);
+            //tabPageMegrendeles.Refresh();
         }
     }
 }
