@@ -29,9 +29,17 @@ namespace TobbformosMvcPizzaTobbTabla
             cbc.MaxDropDownItems = 5;
             cbc.DataSource = repo.getPizzas();
 
+            DataGridViewButtonColumn bcPlusz = new DataGridViewButtonColumn();
+            bcPlusz.HeaderText = "Mennyiség növelés";
+            bcPlusz.Name = "bcPlusz";
+            bcPlusz.Text = "+";
+
+
             dgv.Location = new Point(30, 50);
 
             dgv.Columns.Add(cbc);
+
+            dgv.Columns.Add(bcPlusz);
 
             tabPageMegrendeles.Controls.Add(dgv);
             //tabPageMegrendeles.Refresh();
