@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,9 @@ namespace TobbformosMvcPizzaTobbTabla
             if (dgv != null)
                 return;
             dgv = new DataGridView();
+
+            dgv.CellContentClick += Dgv_CellContentClick;
+            dgv.DefaultValuesNeeded += Dgv_DefaultValuesNeeded;
 
             DataGridViewComboBoxColumn cbc = new DataGridViewComboBoxColumn();
             cbc.Name = "pizzaName";
@@ -72,5 +76,28 @@ namespace TobbformosMvcPizzaTobbTabla
             tabPageMegrendeles.Controls.Add(dgv);
 
       }
+
+        private void Dgv_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
+        {
+            e.Row.Cells[3].Value = "1";
+        }
+
+        private void Dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Debug.WriteLine("dgv:" + e.RowIndex + ", " + e.ColumnIndex);
+
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+            {
+                if (e.ColumnIndex==1)
+                {
+                    Debug.WriteLine("dgv: + gomb");
+                }else
+                {
+                    Debug.WriteLine("dgv: - gomb");
+                }
+            }
+        }
     }
 }
