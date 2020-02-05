@@ -31,6 +31,7 @@ namespace TobbformosMvcPizzaTobbTabla
 
             dgv.CellContentClick += Dgv_CellContentClick;
             dgv.DefaultValuesNeeded += Dgv_DefaultValuesNeeded;
+            dgv.EditingControlShowing += Dgv_EditingControlShowing;
 
             DataGridViewComboBoxColumn cbc = new DataGridViewComboBoxColumn();
             cbc.Name = "pizzaName";
@@ -76,6 +77,11 @@ namespace TobbformosMvcPizzaTobbTabla
             tabPageMegrendeles.Controls.Add(dgv);
 
       }
+
+        private void Dgv_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            
+        }
 
         private void Dgv_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
         {
