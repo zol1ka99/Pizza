@@ -102,7 +102,8 @@ namespace TobbformosMvcPizzaTobbTabla
                     Debug.WriteLine("dgv: - gomb");
                     int db = Convert.ToInt32(
                         dgv.Rows[e.RowIndex].Cells["mennyiseg"].Value.ToString());
-                    db = db - 1;
+                    if (db > 1)
+                        db = db - 1;
                     dgv.Rows[e.RowIndex].Cells["mennyiseg"].Value = db;
                 }
             }
